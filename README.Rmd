@@ -56,7 +56,7 @@ $\sigma$ is the *population* standard deviation,
 and $n$ is the number of observations.
 
 For proportions, $\sigma = p(1-p)$, so the MOE is straightforwardly
-$$ \text{MOE}_\gamma\left(p\right) = z_\gamma \sqrt{\frac{p(1-p)}{n}}. $$
+$$\text{MOE}_\gamma\left(p\right) = z_\gamma \sqrt{\frac{p(1-p)}{n}}.$$
 However, sometimes we care more about the MOE for a difference in proportions.
 Since $\text{Var}\left[X - Y\right] = \text{Var}\left[X\right] + \text{Var}\left[Y\right] - 2\text{Cov}\left[X, Y\right]$,
-$$ \text{MOE}_\gamma\left(p-q\right) = z_\gamma \sqrt{\frac{p(1-p) + q(1-q) + 2pq}{n}}. $$
+$$\text{MOE}_\gamma\left(p-q\right) = z_\gamma \sqrt{\frac{p(1-p) + q(1-q) + 2pq}{n}}.$$
