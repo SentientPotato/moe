@@ -1,0 +1,18 @@
+Package: moe
+Title: Calculate Polling Margin of Error
+Version: 0.0.0.9000
+Authors@R: 
+    person(
+        given  = "Sentient",
+        family = "Potato",
+        email  = "sentient.potato138@gmail.com",
+        role   = c("aut", "cre")
+    )
+Description: Calculate the margin of error for the proportion of respondents
+    giving a particular answer to a poll question, or for the difference
+    between the proportion of respondents giving one particular answer and
+    the proportion of respondents giving a different particular answer.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
