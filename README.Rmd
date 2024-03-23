@@ -34,15 +34,31 @@ devtools::install_github("SentientPotato/moe")
 Suppose you had a poll with 1,510 respondents, where 44% said they'd vote for
 Joe Biden for US President in November 2024, while 43% said they'd vote for
 Donald Trump (like [this Economist/YouGov poll](https://tinyurl.com/2z49d8cf)).
-We can calculate the margin of error on each of those answers,
-as well as their difference:
+We can calculate the margin of error on each of those answers:
 
 ```{r example}
 library(moe)
 moe(n = 1510, p = 0.44) ## MOE & CI for % voting Biden
 moe(n = 1510, p = 0.43) ## MOE & CI for % voting Trump
+```
+
+However, we are probably more interested in the margin of error on their
+*difference*, or in other words, how far ahead or behind Biden is.
+Importantly, the margin of error on Biden's (or Trump's) lead will be bigger
+than the margin of error on the proportion saying they'd vote for him
+(see the [Mathematical Details](#mathematical-details) section for details);
+in fact, it will likely be roughly **twice** as large!
+So if what you want to know is the confidence interval on a lead,
+simply supply the proportion supporting each option:
+
+```{r example-continued}
 moe(n = 1510, p = 0.44, q = 0.43) ## MOE & CI for the difference
 ```
+
+So for this poll, we find out Biden's level of support, 44%, has a margin of
+error of ±2.5% for a 95% confidence interval of [41.5%, 46.5%], but Biden's
+lead over Trump of 1% (44% - 43%) has a larger margin of error of 4.7% for a
+95% confidence interval of [-3.7%, 5.7%].
 
 ## Mathematical Details
 
@@ -59,7 +75,7 @@ where $z_\gamma$ is the $\gamma$ quantile (typically of a standard normal),
 $\sigma$ is the *population* standard deviation,
 and $n$ is the number of observations.
 
-For proportions, $\sigma = p(1-p)$, so the MOE is straightforwardly
+For proportions, $\sigma^2 = p(1-p)$, so the MOE is straightforwardly
 
 ```math
 \text{MOE}_\gamma\left(p\right) = z_\gamma \sqrt{\frac{p(1-p)}{n}}.
